@@ -1,0 +1,13 @@
+<header class="row mb-5">
+  <div class="col-12 pt-5">
+    <a
+      *ngIf="backHome"
+      class="back"
+      [routerLink]="['/']"
+    >Back to World Champions list</a>
+    <h1
+      class="main-title fadeInLeft animated"
+      [ngStyle]="{marginTop: !backHome ? '60px' : 0}"
+    >{{ mainTitle }}</h1>
+  </div>
+</header>

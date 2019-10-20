@@ -1,0 +1,48 @@
+.back {
+  font-weight: 600;
+  font-size: 22px;
+  color: #00afef;
+  position: relative;
+  padding-left: 45px;
+  text-decoration: none;
+  display: inline-block;
+  height: 60px;
+  &::before {
+    content: '';
+    background-image: url(../../assets/img/a-arrow-blue.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 20px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    transform: rotate(180deg);
+  }
+}
+
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-100px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.main-title {
+  animation-delay: .5s;
+}

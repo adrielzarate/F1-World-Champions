@@ -1,0 +1,16 @@
+<div class="row" *ngIf="isLoading; else ready">
+  <div class="col-12">
+      <app-loading></app-loading>
+  </div>
+</div>
+<ng-template #ready>
+
+  <a app-driver-row
+    *ngFor="let champion of worldChampions; let i = index"
+    class="col-12 btn p-0 flipInX animated"
+    [ngStyle]="{animationDelay: (i * .1) + 's'}"
+    [routerLink]="champion.year"
+    [driver]="champion"
+  ></a>
+
+</ng-template>

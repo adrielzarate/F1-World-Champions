@@ -5,6 +5,7 @@ body {
     font-size: 20px;
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
+    // background-color: #000;
 }
 
 h1 {
@@ -15,3 +16,40 @@ h1 {
 .h5 {
     font-weight: 700;
 }
+
+a {
+  .season {
+    &:hover {
+      cursor: pointer;
+      &::before,
+      .year {
+        width: 150px;
+      }
+      .driver {
+        color: #e10600;
+      }
+    }
+  }
+}
+
+@keyframes flipInX {
+    from {
+      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+
+    to {
+      transform: perspective(400px);
+    }
+  }
+
+  .flipInX {
+    backface-visibility: visible !important;
+    animation-name: flipInX;
+  }
+
+  .animated {
+    animation-duration: .3s;
+    animation-fill-mode: both;
+  }
