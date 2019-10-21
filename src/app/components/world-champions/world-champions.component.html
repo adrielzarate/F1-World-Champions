@@ -3,12 +3,13 @@
       <app-loading></app-loading>
   </div>
 </div>
+
 <ng-template #ready>
 
   <a app-driver-row
     *ngFor="let champion of worldChampions; let i = index"
     class="col-12 btn p-0 flipInX animated"
-    [ngStyle]="{animationDelay: (i * .1) + 's'}"
+    [ngStyle]="{animationDelay: i * 0.1 + 's'}"
     [routerLink]="champion.firstData"
     [driver]="champion"
   ></a>

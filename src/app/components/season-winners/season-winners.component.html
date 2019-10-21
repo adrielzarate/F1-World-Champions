@@ -9,7 +9,7 @@
   <div app-driver-row
     *ngFor="let seasonWinner of seasonWinners; let i = index"
     class="col-12 btn p-0 flipInX animated"
-    [ngStyle]="{animationDelay: (i * .1) + 's'}"
+    [ngStyle]="{animationDelay: i * 0.1 + 's'}"
     [ngClass]="{'champion': seasonWinner.firstData === championRaceName}"
     [driver]="seasonWinner"
   ></div>
