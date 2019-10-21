@@ -1,7 +1,9 @@
+@import '../../../assets/scss/colors';
+
 :host ::ng-deep .champion {
   .season--season-winner::before,
   .season__driver {
-    background-color: red;
+    background-color: $f1-red;
     color: #fff;
   }
   .season__first-data {

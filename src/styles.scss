@@ -1,11 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,400i,500,500i,600,600i,700,700i&display=swap');
+@import './assets/scss/colors';
+@import './assets/scss/animations';
 
 body {
     font-family: 'Poppins', sans-serif;
     font-size: 20px;
     scroll-behavior: smooth;
     text-rendering: optimizeLegibility;
-    // background-color: #000;
 }
 
 h1 {
@@ -26,30 +27,8 @@ a {
         width: 150px;
       }
       .season__driver {
-        color: #e10600;
+        color: $f1-red;
       }
     }
   }
 }
-
-@keyframes flipInX {
-    from {
-      transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
-      animation-timing-function: ease-in;
-      opacity: 0;
-    }
-
-    to {
-      transform: perspective(400px);
-    }
-  }
-
-  .flipInX {
-    backface-visibility: visible !important;
-    animation-name: flipInX;
-  }
-
-  .animated {
-    animation-duration: .3s;
-    animation-fill-mode: both;
-  }

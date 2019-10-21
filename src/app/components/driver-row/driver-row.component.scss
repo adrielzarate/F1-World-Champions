@@ -1,3 +1,5 @@
+@import '../../../assets/scss/colors';
+
 .season {
 
   height: 60px;
@@ -8,11 +10,11 @@
     width: 100px;
     height: inherit;
     transform: skew(-30deg);
-    background: #d7d7d7;
+    background: $f1-gray;
     position: absolute;
     left: 30px;
     transition: .3s ease-in-out;
-    border-bottom: #e10600 solid thin;
+    border-bottom: $f1-red solid thin;
   }
 
   &__first-data {
@@ -25,7 +27,7 @@
 
   &__driver {
     background-color: #fff;
-    border-bottom: #e10600 solid thin;
+    border-bottom: $f1-red solid thin;
     width: 100%;
     padding-left: 80px;
 
@@ -44,7 +46,7 @@
         height: 0;
         border-style: solid;
         border-width: 0 0 60px 30px;
-        border-color: transparent transparent #000000 transparent;
+        border-color: transparent transparent #000 transparent;
         position: relative;
         left: -30px;
       }
