@@ -1,22 +1,21 @@
 .season {
 
-    height: 60px;
-    position: relative;
+  height: 60px;
+  position: relative;
 
-    &::before {
-      content: "";
-      width: 100px;
-      height: inherit;
-      transform: skew(-30deg);
-      background: #d7d7d7;
-      position: absolute;
-      left: 30px;
-      transition: .3s ease-in-out;
-      border-bottom: #e10600 solid thin;
-    }
+  &::before {
+    content: "";
+    width: 100px;
+    height: inherit;
+    transform: skew(-30deg);
+    background: #d7d7d7;
+    position: absolute;
+    left: 30px;
+    transition: .3s ease-in-out;
+    border-bottom: #e10600 solid thin;
   }
 
-  .year {
+  &__first-data {
     position: relative;
     left: 30px;
     width: 100px;
@@ -24,7 +23,7 @@
     transition: .3s ease-in-out;
   }
 
-  .driver {
+  &__driver {
     background-color: #fff;
     border-bottom: #e10600 solid thin;
     width: 100%;
@@ -51,3 +50,14 @@
       }
     }
   }
+
+  &--season-winner {
+    &::before {
+      width: 300px;
+    }
+    .season__first-data {
+      font-size: 18px;
+      width: 400px;
+    }
+  }
+}

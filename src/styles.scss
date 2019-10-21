@@ -22,10 +22,10 @@ a {
     &:hover {
       cursor: pointer;
       &::before,
-      .year {
+      .season__first-data {
         width: 150px;
       }
-      .driver {
+      .season__driver {
         color: #e10600;
       }
     }

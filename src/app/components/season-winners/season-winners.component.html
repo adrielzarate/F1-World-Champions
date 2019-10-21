@@ -3,14 +3,15 @@
       <app-loading></app-loading>
   </div>
 </div>
+
 <ng-template #ready>
 
-  <a app-driver-row
-    *ngFor="let champion of worldChampions; let i = index"
+  <div app-driver-row
+    *ngFor="let seasonWinner of seasonWinners; let i = index"
     class="col-12 btn p-0 flipInX animated"
     [ngStyle]="{animationDelay: (i * .1) + 's'}"
-    [routerLink]="champion.year"
-    [driver]="champion"
-  ></a>
+    [ngClass]="{'champion': seasonWinner.firstData === championRaceName}"
+    [driver]="seasonWinner"
+  ></div>
 
 </ng-template>

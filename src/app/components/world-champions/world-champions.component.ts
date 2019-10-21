@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { WorldChampionsService } from '../services/world-champions.service';
-import { HeaderService } from '../services/header.service';
+import { WorldChampionsService } from '../../services/world-champions.service';
+import { HeaderService } from '../../services/header.service';
 
 @Component({
   selector: 'app-world-champions',
@@ -21,7 +21,7 @@ export class WorldChampionsComponent implements OnInit {
     this.headerService.updatePageTitle.emit('F1 World Champions');
     this.headerService.enableBackHome.emit(false);
 
-    this.worldChampionsService.getWorldChampions()
+    this.worldChampionsService.getWorldChampions(2005, 2015)
       .subscribe( res => {
         this.worldChampions = res;
         this.isLoading = false;

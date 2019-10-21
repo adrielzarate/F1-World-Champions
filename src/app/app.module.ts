@@ -4,12 +4,12 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { HeaderComponent } from './header/header.component';
-import { WorldChampionsComponent } from './world-champions/world-champions.component';
-import { LoadingComponent } from './loading/loading.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SeasonWinnersComponent } from './season-winners/season-winners.component';
-import { DriverRowComponent } from './driver-row/driver-row.component';
+import { HeaderComponent } from './components/header/header.component';
+import { WorldChampionsComponent } from './components/world-champions/world-champions.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SeasonWinnersComponent } from './components/season-winners/season-winners.component';
+import { DriverRowComponent } from './components/driver-row/driver-row.component';
 
 @NgModule({
   declarations: [

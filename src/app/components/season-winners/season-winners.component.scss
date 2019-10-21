@@ -1,0 +1,10 @@
+:host ::ng-deep .champion {
+  .season--season-winner::before,
+  .season__driver {
+    background-color: red;
+    color: #fff;
+  }
+  .season__first-data {
+    color: #fff;
+  }
+}

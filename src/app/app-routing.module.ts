@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { WorldChampionsComponent } from './world-champions/world-champions.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SeasonWinnersComponent } from './season-winners/season-winners.component';
+import { WorldChampionsComponent } from './components/world-champions/world-champions.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { SeasonWinnersComponent } from './components/season-winners/season-winners.component';
 
 
 const routes: Routes = [

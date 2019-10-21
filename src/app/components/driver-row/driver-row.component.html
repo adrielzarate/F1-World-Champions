@@ -1,0 +1,13 @@
+<div
+  class="season d-flex h4 w-100 mb-1"
+  [ngClass]="{'season--season-winner': isSeasonWinner }"
+>
+
+  <div class="season__first-data d-flex align-items-center justify-content-center">{{ driver.firstData }}</div>
+
+  <div class="season__driver d-flex align-items-center justify-content-between">
+    <span class="season__driver-name">{{ driver.name }}</span>
+    <span class="season__driver-points d-flex align-items-center pr-5">{{ driver.points }} Pts.</span>
+  </div>
+
+</div>

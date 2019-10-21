@@ -7,11 +7,14 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DriverRowComponent implements OnInit {
 
+  isSeasonWinner: boolean;
+
   @Input() driver: [];
 
   constructor() { }
 
   ngOnInit() {
+    this.isSeasonWinner = isNaN(this.driver['firstData']);
   }
 
 }
