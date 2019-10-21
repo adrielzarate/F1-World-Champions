@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, flatMap } from 'rxjs/operators';
+import { map, flatMap, shareReplay } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,7 @@ export class WorldChampionsService {
           };
         });
       }),
+      shareReplay(1)
     );
   }
 
@@ -50,6 +51,7 @@ export class WorldChampionsService {
           };
         });
       }),
+      shareReplay(1)
     );
   }
 
@@ -61,6 +63,7 @@ export class WorldChampionsService {
         return championData.Driver.familyName;
       }),
       flatMap(championName => this.getLastChampionRace(year, championName)),
+      shareReplay(1)
     );
   }
 
@@ -71,7 +74,9 @@ export class WorldChampionsService {
         const races = res['MRData'].RaceTable.Races;
         const lastRace = races.pop().raceName;
         return lastRace;
-      }),
+      }
+    ),
+    shareReplay(1)
     );
   }
 
