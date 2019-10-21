@@ -1,16 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { WorldChampionsService } from '../../services/world-champions.service';
 import { HeaderService } from '../../services/header.service';
+import { Subscription } from 'rxjs/index';
 
 @Component({
   selector: 'app-world-champions',
   templateUrl: './world-champions.component.html',
   styleUrls: ['./world-champions.component.scss']
 })
-export class WorldChampionsComponent implements OnInit {
+export class WorldChampionsComponent implements OnInit, OnDestroy {
 
   worldChampions: any;
   isLoading = true;
+
+  worldChampions$: Subscription;
 
   constructor(
     private worldChampionsService: WorldChampionsService,
@@ -21,13 +24,16 @@ export class WorldChampionsComponent implements OnInit {
     this.headerService.updatePageTitle.emit('F1 World Champions');
     this.headerService.enableBackHome.emit(false);
 
-    this.worldChampionsService.getWorldChampions(2005, 2015)
+    this.worldChampions$ = this.worldChampionsService.getWorldChampions(2005, 2015)
       .subscribe( res => {
         this.worldChampions = res;
         this.isLoading = false;
-
       }, (err) => {
-        console.log('Error en el appComponent');
+        console.log(console.log(err));
       });
+  }
+
+  ngOnDestroy() {
+    this.worldChampions$.unsubscribe();
   }
 }
