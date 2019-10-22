@@ -28,23 +28,23 @@ export class SeasonWinnersComponent implements OnInit, OnDestroy {
 
     const season = +this.route.snapshot.params.season;
 
-    this.headerService.updatePageTitle.emit('F1 Winners in Season ' + season);
-    this.headerService.enableBackHome.emit(true);
+    this.setPageTitle(season);
 
     this.championRaceName$ = this.worldChampionsService.getChampionRaceName(season)
       .subscribe(res => {
         this.championRaceName = res;
-      }, (err) => {
-        console.log(err);
       });
 
     this.winnersBySeason$ = this.worldChampionsService.getWinnersBySeason(season)
       .subscribe( res => {
         this.seasonWinners = res;
         this.isLoading = false;
-      }, (err) => {
-        console.log(err);
       });
+  }
+
+  setPageTitle(season: number): void {
+    this.headerService.updatePageTitle.emit('F1 Winners in Season ' + season);
+    this.headerService.enableBackHome.emit(true);
   }
 
   ngOnDestroy() {

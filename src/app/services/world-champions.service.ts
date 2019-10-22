@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, flatMap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { map, flatMap, catchError } from 'rxjs/operators';
+import { throwError, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,6 @@ import { map, flatMap } from 'rxjs/operators';
 export class WorldChampionsService {
 
   initialYear = 1950;
-  seasonChampion: any;
   api = 'http://ergast.com/api/f1';
 
   constructor(
@@ -28,7 +28,7 @@ export class WorldChampionsService {
         return standingsLists.map( driver => {
           return {
             firstData: driver.season,
-            name: driver.DriverStandings[0].Driver.familyName + ' ' + driver.DriverStandings[0].Driver.givenName,
+            name: `${driver.DriverStandings[0].Driver.familyName} ${driver.DriverStandings[0].Driver.givenName}`,
             points: driver.DriverStandings[0].points
           };
         });
@@ -37,7 +37,6 @@ export class WorldChampionsService {
   }
 
   getWinnersBySeason(year: number) {
-
     return this.http.get(`${this.api}/${year}/results/1.json`)
     // return this.http.get('../assets/dummy-data/winners-2005.json')
     .pipe(
@@ -46,7 +45,7 @@ export class WorldChampionsService {
         return races.map( driver => {
           return {
             firstData: driver.raceName,
-            name: driver.Results[0].Driver.familyName + ' ' + driver.Results[0].Driver.givenName,
+            name: `${driver.Results[0].Driver.familyName} ${driver.Results[0].Driver.givenName}`,
             points: driver.Results[0].points
           };
         });

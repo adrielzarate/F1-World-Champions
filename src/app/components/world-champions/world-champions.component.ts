@@ -21,8 +21,8 @@ export class WorldChampionsComponent implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.headerService.updatePageTitle.emit('F1 World Champions');
-    this.headerService.enableBackHome.emit(false);
+
+    this.setPageTitle();
 
     this.worldChampions$ = this.worldChampionsService.getWorldChampions(2005, 2015)
       .subscribe( res => {
@@ -31,6 +31,11 @@ export class WorldChampionsComponent implements OnInit, OnDestroy {
       }, (err) => {
         console.log(console.log(err));
       });
+  }
+
+  setPageTitle(): void {
+    this.headerService.updatePageTitle.emit('F1 World Champions');
+    this.headerService.enableBackHome.emit(false);
   }
 
   ngOnDestroy() {

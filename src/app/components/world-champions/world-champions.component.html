@@ -10,7 +10,7 @@
     *ngFor="let champion of worldChampions; let i = index"
     class="col-12 btn p-0 flipInX animated"
     [ngStyle]="{animationDelay: i * 0.1 + 's'}"
-    [routerLink]="champion.firstData"
+    [routerLink]="['/season', champion.firstData]"
     [driver]="champion"
   ></a>
 

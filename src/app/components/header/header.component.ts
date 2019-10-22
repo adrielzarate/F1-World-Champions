@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, DoCheck } from '@angular/core';
 import { HeaderService } from '../../services/header.service';
 import { Subscription } from 'rxjs/index';
 
@@ -7,19 +7,29 @@ import { Subscription } from 'rxjs/index';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy, DoCheck {
 
   mainTitle: string;
   backHome: boolean;
+  ready: boolean;
 
   updatePageTitle$: Subscription;
   enableBackHome$: Subscription;
+  titleReady$: Subscription;
 
   constructor(
     private headerService: HeaderService
   ) {}
 
   ngOnInit() {
+
+    this.titleReady$ = this.headerService.titleReady
+      .subscribe( (res: boolean) => {
+        this.ready = res;
+      }, (err) => {
+        console.log(err);
+      });
+
     this.updatePageTitle$ = this.headerService.updatePageTitle
       .subscribe( (res: string) => {
         this.mainTitle = res;
@@ -35,9 +45,14 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
   }
 
+  ngDoCheck() {
+    this.ready = true;
+  }
+
   ngOnDestroy() {
     this.updatePageTitle$.unsubscribe();
     this.enableBackHome$.unsubscribe();
+    this.titleReady$.unsubscribe();
   }
 
 }

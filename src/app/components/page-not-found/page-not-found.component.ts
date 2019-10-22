@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeaderService } from 'src/app/services/header.service';
 
 @Component({
   selector: 'app-page-not-found',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private headerService: HeaderService
+  ) { }
 
   ngOnInit() {
+    this.headerService.updatePageTitle.emit('There is not results for this search');
+    this.headerService.enableBackHome.emit(true);
   }
 
 }

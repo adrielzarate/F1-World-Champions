@@ -11,7 +11,7 @@ const routes: Routes = [
     component: WorldChampionsComponent
   },
   {
-    path: ':season',
+    path: 'season/:season',
     component: SeasonWinnersComponent
   },
   {
