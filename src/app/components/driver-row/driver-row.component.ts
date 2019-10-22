@@ -9,12 +9,12 @@ export class DriverRowComponent implements OnInit {
 
   isSeasonWinner: boolean;
 
-  @Input() driver: [];
+  @Input() driver: any;
 
   constructor() { }
 
   ngOnInit() {
-    this.isSeasonWinner = isNaN(this.driver['firstData']);
+    this.isSeasonWinner = isNaN(this.driver.firstData);
   }
 
 }

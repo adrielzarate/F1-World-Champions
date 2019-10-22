@@ -1,12 +1,24 @@
 @import '../../../assets/scss/colors';
 
-:host ::ng-deep .champion {
-  .season--season-winner::before,
-  .season__driver {
-    background-color: $f1-red;
-    color: #fff;
+:host ::ng-deep {
+
+  .champion {
+    .season::before,
+    .season__driver{
+      background-color: $f1-red;
+    }
+    .season__driver,
+    .season__first-data {
+      color: #fff;
+    }
   }
+
+  .season::before {
+    width: 300px;
+  }
+
   .season__first-data {
-    color: #fff;
+    font-size: 18px;
+    width: 400px;
   }
 }

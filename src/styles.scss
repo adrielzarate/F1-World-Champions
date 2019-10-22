@@ -17,18 +17,3 @@ h1 {
 .h5 {
     font-weight: 700;
 }
-
-a {
-  .season {
-    &:hover {
-      cursor: pointer;
-      &::before,
-      .season__first-data {
-        width: 150px;
-      }
-      .season__driver {
-        color: $f1-red;
-      }
-    }
-  }
-}

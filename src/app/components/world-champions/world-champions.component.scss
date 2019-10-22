@@ -1,0 +1,30 @@
+@import '../../../assets/scss/colors';
+
+:host ::ng-deep {
+  a {
+    .season {
+
+      &:hover {
+        cursor: pointer;
+        &::before,
+        .season__first-data {
+          min-width: 150px;
+        }
+        .season__driver {
+          color: #000;
+        }
+      }
+
+      &::before,
+      &__driver{
+        background-color: $f1-red;
+      }
+
+      &__driver,
+      &__first-data {
+        color: #fff;
+      }
+
+    }
+  }
+}

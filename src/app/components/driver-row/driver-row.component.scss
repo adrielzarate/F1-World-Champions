@@ -7,7 +7,7 @@
 
   &::before {
     content: "";
-    width: 100px;
+    min-width: 100px;
     height: inherit;
     transform: skew(-30deg);
     background: $f1-gray;
@@ -20,7 +20,7 @@
   &__first-data {
     position: relative;
     left: 30px;
-    width: 100px;
+    min-width: 100px;
     padding-left: 10px;
     transition: .3s ease-in-out;
   }
@@ -53,13 +53,13 @@
     }
   }
 
-  &--season-winner {
-    &::before {
-      width: 300px;
-    }
-    .season__first-data {
-      font-size: 18px;
-      width: 400px;
-    }
-  }
+  // &--season-winner {
+  //   &::before {
+  //     width: 300px;
+  //   }
+  //   .season__first-data {
+  //     font-size: 18px;
+  //     width: 400px;
+  //   }
+  // }
 }
