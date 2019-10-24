@@ -12,7 +12,7 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 
 ## Tests
 
-Just run the `ng test` CLI command.
+Just run the `ng test` CLI command to run the tests with Jasmine.
 
 ## App Explanation
 
