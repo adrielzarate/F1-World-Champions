@@ -3,6 +3,7 @@ import { WorldChampionsService } from '../../services/world-champions.service';
 import { ActivatedRoute } from '@angular/router';
 import { HeaderService } from '../../services/header.service';
 import { Subscription } from 'rxjs/index';
+import { Driver } from '../models/driver.model';
 
 @Component({
   selector: 'app-season-winners',
@@ -11,7 +12,7 @@ import { Subscription } from 'rxjs/index';
 })
 export class SeasonWinnersComponent implements OnInit, OnDestroy {
 
-  seasonWinners: any;
+  seasonWinners: Driver[];
   championRaceName: string;
   isLoading = true;
 
@@ -20,13 +21,13 @@ export class SeasonWinnersComponent implements OnInit, OnDestroy {
 
   constructor(
     private worldChampionsService: WorldChampionsService,
-    private route: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     private headerService: HeaderService
   ) { }
 
   ngOnInit() {
 
-    const season = +this.route.snapshot.params.season;
+    const season = +this.activatedRoute.snapshot.params.season;
 
     this.setPageTitle(season);
 
