@@ -21,7 +21,6 @@ export class WorldChampionsService {
     const limit = to - from + 1; // 11
 
     return this.http.get(`${this.api}/driverStandings/1.json?limit=${limit}&offset=${offset}`)
-    // return this.http.get('../assets/dummy-data/world-champions.json')
     .pipe(
       map( res => {
         const standingsLists = res['MRData'].StandingsTable.StandingsLists;
@@ -38,7 +37,6 @@ export class WorldChampionsService {
 
   getWinnersBySeason(year: number) {
     return this.http.get(`${this.api}/${year}/results/1.json`)
-    // return this.http.get('../assets/dummy-data/winners-2005.json')
     .pipe(
       map( res => {
         const races = res['MRData'].RaceTable.Races;

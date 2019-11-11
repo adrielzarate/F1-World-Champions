@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Driver } from '../models/driver.model';
 
 @Component({
   selector: '[app-driver-row]',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class DriverRowComponent implements OnInit {
 
-  @Input() driver: object;
+  @Input() driver: Driver;
 
   constructor() { }
 

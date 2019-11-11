@@ -28,8 +28,7 @@ describe('HeaderComponent', () => {
   });
 
   it('should have a title', () => {
-    const app = fixture.debugElement.componentInstance;
-    app.mainTitle = 'title Example';
+    component.mainTitle = 'title Example';
     fixture.detectChanges();
 
     const elem: HTMLElement = fixture.debugElement.query( By.css('h1') ).nativeElement;
@@ -38,9 +37,7 @@ describe('HeaderComponent', () => {
   });
 
   it( 'should have a link to homepage if is enabled by backHome variable', () => {
-
-    const app = fixture.debugElement.componentInstance;
-    app.backHome = true;
+    component.backHome = true;
     fixture.detectChanges();
 
     const linkElement = fixture.debugElement.query( By.directive( RouterLinkWithHref ) );
@@ -50,14 +47,12 @@ describe('HeaderComponent', () => {
   });
 
   it( 'should not have a link element if is not enabled by backHome variable', () => {
-
-    const app = fixture.debugElement.componentInstance;
-    app.backHome = false;
+    component.backHome = false;
     fixture.detectChanges();
 
-    const linkElement = fixture.debugElement.query( By.css('a') );
+    const elem: HTMLElement = fixture.debugElement.query( By.css('a') ).nativeElement;
 
-    expect( linkElement ).toBeNull();
+    expect( elem ).toBeNull();
   });
 
 });

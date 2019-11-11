@@ -16,18 +16,24 @@ describe('DriverRowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(DriverRowComponent);
     component = fixture.componentInstance;
-    const app = fixture.debugElement.componentInstance;
-    app.driver = {
-      firstData: 'dummyFirstData',
-      name: 'dummyName',
-      points: 'dummyPoints',
-    };
-    fixture.detectChanges();
   });
 
   it('should create component', () => {
     expect(component).toBeTruthy();
   });
 
+  it('should show data from @Input', () => {
+    component.driver = {
+      firstData: 'firstData',
+      name: 'name',
+      points: 0,
+    };
+    component.ngOnInit();
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('.season__first-data').innerText).toEqual('firstData');
+    expect(fixture.nativeElement.querySelector('.season__driver-name').innerText).toEqual('name');
+    expect(fixture.nativeElement.querySelector('.season__driver-points').innerText).toEqual(0 + ' Pts.');
+  });
 
 });
