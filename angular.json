@@ -126,5 +126,10 @@
         }
       }
     }},
+    "cli": {
+      "cache": {
+        "enabled": false
+      }
+    },
   "defaultProject": "mobiquity-f1"
 }
